@@ -1,0 +1,41 @@
+.hero{
+height: 500px;
+width: 200px;
+font-family: 'Hind', sans-serif;
+padding: 50px;
+}
+
+img{
+  height: 300px;
+}
+
+
+.header{
+margin: 0;
+font-family: 'Gloria Hallelujah', cursive;
+background: black;
+color: white;
+margin: 0;
+font-size: 100px;
+text-align: center;
+
+}
+body{
+margin: 0;
+}
+
+.collection{
+display: flex;
+flex-wrap: wrap;
+}
+
+
+.search{
+width: 700px;
+border-style: solid;
+color: black;
+height: 50px;
+font-size: 40px;
+border-color: red;
+
+}

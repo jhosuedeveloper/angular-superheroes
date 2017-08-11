@@ -4,9 +4,65 @@
   <meta charset="UTF-8">
   <title>Superhero Phone Book</title>
   <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Hind|Josefin+Sans|Lobster|Montserrat|Raleway|Sedgwick+Ave" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
   <script src="app.js"></script>
 </head>
-<body>
+<body ng-app="superHero">
+
+
+<section ng-controller="HerosController as vm">
+
+<header class="header">
+SUPER HEROES
+<img ng-src="{{vm.heroDisplay}}" height="200px" width="300px">
+</header>
+
+
+
+  <input type="text" ng-model="vm.heroSearch", class="search">
+<div class="collection">
+  <div ng-repeat="hero in vm.heros | filter: { name: vm.heroSearch }", class="hero">
+    <img ng-src="{{hero.img_url}}">
+    <ul>
+      <li>{{hero.name}}</li>
+      <li>{{hero.phone_number}}</li>
+      <li>{{hero.comics_affiliation}}</li>
+    </ul>
+    <button ng-click="vm.showHero(hero)">SHOW ME</button>
+  </div>
+</div>
+
+</section>
+
+
+
+
+
+
+<section ng-controller="HerosFormController as vm">
+  <h2>New HERO</h2>
+
+  <label for="name-input">Name</label>
+  <input type="text" id="name-input" ng-model="vm.newHero.name">
+
+  <label for="phone-input">Phone Number</label>
+  <input type="text" id="phone-input" ng-model="vm.newHero.phone_number">
+
+  <label for="affil-input">Phone Number</label>
+  <input type="text" id="affil-input" ng-model="vm.newHero.comics_affiliation">
+
+  <label for="img-input">Phone Number</label>
+  <input type="text" id="img-input" ng-model="vm.newHero.img_url">
+
+  <button ng-click="vm.addHero()">Add</button>
+
+  <p>User input: {{vm.newHero}}</p>
+</section>
+
+
+
+
+
 </body>
 </html>
